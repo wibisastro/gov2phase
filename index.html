@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Gov 2.0 Phase Bar</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/vue.js"></script>
+        <script src="js/httpVueLoader.js"></script>
+        <script src="js/axios.min.js"></script>
+        <script type="text/javascript">
+        const eventBus = new Vue();
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <section class="hero is-primary">
+                <div></div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-narrow">
+                            <div style="width: 200px;"></div>
+                        </div>
+                        <div class="column">
+                            <h1 class="title">Phase Bar Component</h1>
+                            <div class="field is-horizontal">
+                                <div class="field-body">
+                                    <div class="field is-grouped is-grouped-right">
+                                        <gov2phasebar :is-active="true" get-url="json" :state-no="stateNo"></gov2phasebar>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="">Current State</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div v-text="stateNo" class="field box"></div>
+                                    </div>
+                                </div>
+                            </div>	              
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="content has-text-centered">
+                        <p>
+                            <strong>Gov 2.0</strong> by Cyber Gov Labs. The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. 
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script type="text/javascript">
+            new Vue({
+                el: '#app',
+                components: {
+                    'gov2phasebar': httpVueLoader('vue/gov2phasebar.vue'),
+                },
+                data () {
+                    return {
+                        stateNo: 2,
+                    }
+                },
+                methods: {
+                    changeState: function(data) {
+                        this.stateNo=data;
+                    },
+                },
+                created: function () {
+                    eventBus.$on("changeState", this.changeState);
+                },
+            });
+        </script>
+
+    </body>
+</html>

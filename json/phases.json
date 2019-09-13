@@ -1,0 +1,22 @@
+[{
+    "name": "piu",
+    "id": "1",
+    "label": "PIU",
+    "next": "Kirim ke PMU"
+},{
+    "name": "pmu",
+    "id": "2",
+    "label": "PMU",
+    "next": "Kirim ke Penelaah",
+    "prev": "Kirim ke PIU"
+},{
+    "name": "penelaah",
+    "id": "3",
+    "label": "Penelaah",
+    "next": "Triwulan",
+    "prev": "Kirim ke PMU"
+},{
+    "name": "triwulan",
+    "id": "4",
+    "label": "Triwulan"
+}]
