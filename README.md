@@ -1,5 +1,4 @@
-# Welcome to the gov2phase
-Sebuah komponen VUE untuk navigasi tahapan proses
+# Welcome to the gov2button
 
 # Tag
 
